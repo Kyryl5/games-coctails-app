@@ -1,0 +1,28 @@
+{
+	"games": [
+		{
+			"id": 1,
+			"name": "Gradus",
+			"img": "./src/GamesPics/gradus.jpg",
+			"description": "Gradus will ignite the party, blow up the holiday with jokes, amuse friends with jokes, arrange a roof-blowing rest and even add notes of eroticism. Thematic decks with tasks can be formed according to your preferences, so it will be interesting to play Gradus both in the company of students and in the work team and even in the family circle, removing / adding some decks. Turn any meeting into a flight party, and a classic game of the board game - into a riotous feast!",
+			"link": "https://rozetka.com.ua/ua/bombat_game_4820172800262/p114381355/",
+			"theme": "Alcoholic"
+		},
+		{
+			"id": 1,
+			"name": "Gradus",
+			"img": "./src/GamesPics/gradus.jpg",
+			"description": "Gradus will ignite the party, blow up the holiday with jokes, amuse friends with jokes, arrange a roof-blowing rest and even add notes of eroticism. Thematic decks with tasks can be formed according to your preferences, so it will be interesting to play Gradus both in the company of students and in the work team and even in the family circle, removing / adding some decks. Turn any meeting into a flight party, and a classic game of the board game - into a riotous feast!",
+			"link": "https://rozetka.com.ua/ua/bombat_game_4820172800262/p114381355/",
+			"theme": "Alcoholic"
+		},
+		{
+			"id": 1,
+			"name": "Gradus",
+			"img": "./src/GamesPics/gradus.jpg",
+			"description": "Gradus will ignite the party, blow up the holiday with jokes, amuse friends with jokes, arrange a roof-blowing rest and even add notes of eroticism. Thematic decks with tasks can be formed according to your preferences, so it will be interesting to play Gradus both in the company of students and in the work team and even in the family circle, removing / adding some decks. Turn any meeting into a flight party, and a classic game of the board game - into a riotous feast!",
+			"link": "https://rozetka.com.ua/ua/bombat_game_4820172800262/p114381355/",
+			"theme": "Alcoholic"
+		}
+	]
+}
