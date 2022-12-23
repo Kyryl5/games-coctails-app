@@ -1,4 +1,4 @@
-export default function AppInfo() {
+export default function MainPage() {
   return (
     <div className="app-info">
       <h1>App about Coctails & Games.....</h1>
