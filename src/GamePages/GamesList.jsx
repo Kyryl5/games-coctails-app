@@ -12,7 +12,7 @@ export default function GamesList() {
 	// }, []);
 	//test  ↑
 	useEffect(() => {
-		fetch("http://localhost:3004/games")
+		fetch("https://my-json-server.typicode.com/DimaZHV/cheers-db/games")
 			.then((resp) => resp.json())
 			.then((response) => setData(response));
 	}, []);
@@ -21,9 +21,9 @@ export default function GamesList() {
 			<h1>GAMES</h1>
 			{data.map((game, index) => (
 				<Link key={index} to={`${game.id}`}>
-					<li>{game.name}</li>
-					<li>{game.description}</li>
 					<img src={game.img} alt="" />
+					<li>{game.name}</li>
+					<li>{game.theme}</li>
 				</Link>
 			))}
 		</>
