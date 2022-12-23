@@ -31,33 +31,17 @@ export default function CocktailsList() {
   return (
     <div className="cocktails">
       <h1>COCKTAILS</h1>
-      <button>Clear</button>
       <div className="cocktails_search">
-        <form
-          onSubmit={(e) => {
-            // searchByName(e)
+        <label htmlFor="search"> Search coctails </label>
+        <input
+          onChange={(e) => {
+            console.log('e.target.value >>> ', e.target.value)
+            setCocktailName(e.target.value)
+            setSearch(e.target.value)
           }}
-          action=""
-        >
-          <input
-            onChange={(e) => {
-              console.log('e.target.value >>> ', e.target.value)
-              setCocktailName(e.target.value)
-              setSearch(e.target.value)
-            }}
-            type="text"
-            name=""
-            value={cocktailName}
-            id=""
-          />
-          <button
-            onClick={(e) => {
-              // searchByName(e)
-            }}
-          >
-            Search
-          </button>
-        </form>
+          value={cocktailName}
+          id="search"
+        />
       </div>
       <div className="navigation">
         <button
@@ -70,7 +54,7 @@ export default function CocktailsList() {
             setFilter('')
           }}
         >
-          Random Cocktails
+          All Cocktails
         </button>
         <button
           onClick={() => {

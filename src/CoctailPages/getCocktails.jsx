@@ -8,7 +8,6 @@ export const getCocktails = async ({ request }) => {
     const resultNonAlc = await fetch(
       'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
     ).then((res) => res.json().then((res) => res.drinks))
-    console.log('work')
 
     result = resultAlc
       .concat(resultNonAlc)
