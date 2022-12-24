@@ -4,21 +4,25 @@ export default function Layout() {
   return (
     <>
       <header>
-        <p>
-          _______↓___________↓____________↓___________ <br />
-          This is header with links to games & coctails{' '}
-        </p>
-        <NavLink to="/games-cocktails-app/"> →Home</NavLink>
-        <NavLink to="/games-cocktails-app/games"> →to Games List</NavLink>
-        <NavLink to="/games-cocktails-app/cocktails">
-          {' '}
-          →to Coctails List
-        </NavLink>
+        <p>_______↓___________↓____________↓___________</p>
+        <NavLink to="/games-cocktails-app/"> Cheer App</NavLink>
+        <NavLink to="/games-cocktails-app/cocktails"> Coctails</NavLink>
+        <NavLink to="/games-cocktails-app/games"> Party Games</NavLink>
+
         <p>_______↑___________↑____________↑___________</p>
       </header>
       <main>
         <Outlet></Outlet>
       </main>
+      <footer>
+        <p>_______↓___________↓____________↓___________</p>
+        <NavLink to="/games-cocktails-app/"> Cheer App</NavLink>
+        <NavLink to="/games-cocktails-app/cocktails"> Coctails</NavLink>
+        <NavLink to="/games-cocktails-app/games"> Party Games</NavLink>
+        <p>Created by ...</p>
+        <p>Cheer App ...</p>
+        <p>_______↑___________↑____________↑___________</p>
+      </footer>
     </>
   )
 }

@@ -6,6 +6,7 @@ import {
   useNavigate,
   Link,
 } from 'react-router-dom'
+import { ROUTES } from '../router/router'
 
 export default function CocktailsList() {
   const [error, setError] = useState(false)
@@ -46,18 +47,23 @@ export default function CocktailsList() {
 
   return (
     <div className="cocktails">
-      <h1>COCKTAILS</h1>
+      <h1>Find your favorite coctail</h1>
       <div className="cocktails_search">
-        <label htmlFor="search"> Search coctails </label>
+        <label htmlFor="search">
+          {' '}
+          Find one of more than 100 coctails by name
+        </label>
         <input
           onChange={(e) => {
-            console.log('e.target.value >>> ', e.target.value)
             setSearch(e.target.value)
           }}
           value={search}
           id="search"
+          autocomplete="off"
         />
       </div>
+      <Link to={ROUTES.randomCocktailPage}>Give me a random one →</Link>
+
       <div className="navigation">
         <button
           onClick={() => {
@@ -68,6 +74,7 @@ export default function CocktailsList() {
             }
             setFilter('')
           }}
+          style={{ border: filter === '' && '1px solid red' }}
         >
           All Cocktails
         </button>
@@ -80,6 +87,7 @@ export default function CocktailsList() {
               navigate(`${location.pathname}?filter=alcoholic`)
             }
           }}
+          style={{ border: filter === 'alcoholic' && '1px solid red' }}
         >
           Alcoholic
         </button>
@@ -94,8 +102,9 @@ export default function CocktailsList() {
               navigate(`${location.pathname}?filter=non-alcoholic`)
             }
           }}
+          style={{ border: filter === 'non-alcoholic' && '1px solid red' }}
         >
-          Non-Alcoholic
+          Non Alcoholic
         </button>
       </div>
       <div className="cocktail_list">
@@ -106,17 +115,16 @@ export default function CocktailsList() {
               <img
                 style={{ width: '200px', height: '200px' }}
                 src={el.strDrinkThumb}
-                alt=""
+                alt={el.strDrink}
               />
             </div>
+            <p>{el.strDrink}</p>
             <Link
               to={`/games-cocktails-app/cocktail/${el.idDrink}`}
               className="cocktail_name"
             >
-              {el.strDrink}
+              Coctail Details →{' '}
             </Link>
-            <div className="cocktail_alcoholic">{el.strAlcoholic}</div>
-            <div className="cocktail_category">{el.strCategory}</div>
           </div>
         ))}
         {coctails.length === 0 && (

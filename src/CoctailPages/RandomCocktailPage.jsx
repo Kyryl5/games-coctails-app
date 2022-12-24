@@ -1,7 +1,7 @@
 import { useLoaderData, Link } from 'react-router-dom'
 import { ROUTES } from '../router/router'
 
-export default function CocktailPage() {
+export default function RandomCocktailPage() {
   const { strDrink, strDrinkThumb, strAlcoholic, strInstructions } =
     useLoaderData()
 
