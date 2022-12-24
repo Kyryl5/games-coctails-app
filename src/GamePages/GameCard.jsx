@@ -1,15 +1,18 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from "react-router-dom";
 
 export default function GameCard() {
-  //test ↓
-  const { phone, name } = useLoaderData()
-  // test↑
-
-  return (
-    <>
-      <h1>Game:</h1>
-      <p>Test field: {name} game</p>
-      <p>Test field: game number {phone} </p>
-    </>
-  )
+	const game = useLoaderData();
+	return (
+		<div>
+			<ul>
+				<li>
+					<img src={`../.${game.img}`} alt="" />
+				</li>
+				<li>{game.name}</li>
+				<li>{game.description}</li>
+				<li>{game.link}</li>
+				<li>{game.theme}</li>
+			</ul>
+		</div>
+	);
 }
