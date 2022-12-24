@@ -1,5 +1,6 @@
 export const getCocktails = async ({ request }) => {
   let result
+  console.log('request getCoctails>', request)
 
   if (!request.url.includes('filter')) {
     const resultAlc = await fetch(
@@ -9,10 +10,12 @@ export const getCocktails = async ({ request }) => {
       'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
     ).then((res) => res.json().then((res) => res.drinks))
 
-    result = resultAlc
-      .concat(resultNonAlc)
-      .sort()
-      .splice(Math.round(Math.random() * 149), 9)
+    result = resultAlc.reduce((acc, el, i) => {
+      if (!resultNonAlc[i]) {
+        return [...acc, el]
+      }
+      return [...acc, el, resultNonAlc[i]]
+    }, [])
   }
 
   if (request.url.includes('filter=alcoholic')) {
@@ -33,5 +36,6 @@ export const getCocktails = async ({ request }) => {
       return el.strDrink.toLowerCase().includes(search.toLowerCase())
     })
   }
+
   return result
 }

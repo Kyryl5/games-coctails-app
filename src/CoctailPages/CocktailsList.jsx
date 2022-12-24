@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
-
-import { useLoaderData, useLocation, useNavigate, Link } from 'react-router-dom'
+import {
+  useLoaderData,
+  useSearchParams,
+  useLocation,
+  useNavigate,
+  Link,
+} from 'react-router-dom'
 
 export default function CocktailsList() {
-  const [cocktailName, setCocktailName] = useState('')
   const [error, setError] = useState(false)
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('')
@@ -11,6 +15,18 @@ export default function CocktailsList() {
   const navigate = useNavigate()
   const coctails = useLoaderData()
   console.log('coctails >', coctails)
+  console.log('location >', location)
+  const [searchParams, setSearchParams] = useSearchParams()
+  console.log('searchParams search >', searchParams.get('search'))
+  console.log('searchParams  filter>', searchParams.get('filter'))
+  useEffect(() => {
+    if (searchParams.get('search')) {
+      setSearch(searchParams.get('search'))
+    }
+    if (searchParams.get('filter')) {
+      setFilter(searchParams.get('filter'))
+    }
+  }, [])
 
   useEffect(() => {
     if (search) {
@@ -36,10 +52,9 @@ export default function CocktailsList() {
         <input
           onChange={(e) => {
             console.log('e.target.value >>> ', e.target.value)
-            setCocktailName(e.target.value)
             setSearch(e.target.value)
           }}
-          value={cocktailName}
+          value={search}
           id="search"
         />
       </div>
@@ -104,6 +119,12 @@ export default function CocktailsList() {
             <div className="cocktail_category">{el.strCategory}</div>
           </div>
         ))}
+        {coctails.length === 0 && (
+          <p>
+            No such cocktail found... <br /> In the future you can add your own
+            cocktail
+          </p>
+        )}
       </div>
     </div>
   )
