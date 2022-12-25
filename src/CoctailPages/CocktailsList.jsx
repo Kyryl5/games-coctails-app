@@ -1,49 +1,49 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 import {
   useLoaderData,
   useSearchParams,
   useLocation,
   useNavigate,
   Link,
-} from "react-router-dom";
-import BrandButton from "../UiElements/brandButton";
+} from 'react-router-dom'
+import BrandButton from '../UiElements/brandButton'
+import { ROUTES } from '../router/router'
 
 export default function CocktailsList() {
-  const [error, setError] = useState(false);
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
-  const location = useLocation();
-  const navigate = useNavigate();
-  const coctails = useLoaderData();
-  console.log("coctails >", coctails);
-  console.log("location >", location);
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log("searchParams search >", searchParams.get("search"));
-  console.log("searchParams  filter>", searchParams.get("filter"));
+  const [error, setError] = useState(false)
+  const [search, setSearch] = useState('')
+  const [filter, setFilter] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
+  const coctails = useLoaderData()
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  console.log('coctails >', coctails)
+
   useEffect(() => {
-    if (searchParams.get("search")) {
-      setSearch(searchParams.get("search"));
+    if (searchParams.get('search')) {
+      setSearch(searchParams.get('search'))
     }
-    if (searchParams.get("filter")) {
-      setFilter(searchParams.get("filter"));
+    if (searchParams.get('filter')) {
+      setFilter(searchParams.get('filter'))
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (search) {
       if (filter) {
-        navigate(`${location.pathname}?search=${search}&filter=${filter}`);
+        navigate(`${location.pathname}?search=${search}&filter=${filter}`)
       } else {
-        navigate(`${location.pathname}?search=${search}`);
+        navigate(`${location.pathname}?search=${search}`)
       }
     } else {
       if (filter) {
-        navigate(`${location.pathname}?&filter=${filter}`);
+        navigate(`${location.pathname}?&filter=${filter}`)
       } else {
-        navigate(`${location.pathname}`);
+        navigate(`${location.pathname}`)
       }
     }
-  }, [search]);
+  }, [search])
 
   return (
     <div className="cocktails">
@@ -56,8 +56,7 @@ export default function CocktailsList() {
             {/* <label htmlFor="search"> Search coctails </label> */}
             <input
               onChange={(e) => {
-                console.log("e.target.value >>> ", e.target.value);
-                setSearch(e.target.value);
+                setSearch(e.target.value)
               }}
               value={search}
               id="search"
@@ -67,8 +66,8 @@ export default function CocktailsList() {
             />
           </div>
           <BrandButton
-            buttontext={"give me a random one"}
-            buttonlink={"/games-cocktails-app/cocktails"} // - тут треба вставити посилання на генерацію рандомних коктейлів
+            buttontext={'give me a random one'}
+            buttonlink={ROUTES.randomCocktailPage} // - тут треба вставити посилання на генерацію рандомних коктейлів √
           />
         </div>
         <div className="hero-head-image"></div>
@@ -78,40 +77,43 @@ export default function CocktailsList() {
           <button
             onClick={() => {
               if (search) {
-                navigate(`${location.pathname}?search=${search}`);
+                navigate(`${location.pathname}?search=${search}`)
               } else {
-                navigate(`${location.pathname}`);
+                navigate(`${location.pathname}`)
               }
-              setFilter("");
+              setFilter('')
             }}
+            style={{ border: filter === '' && '2px solid red' }} // стилізация активної кнопки(можна навішувати клас)
           >
             All Cocktails
           </button>
           <button
             onClick={() => {
-              setFilter("alcoholic");
+              setFilter('alcoholic')
               if (search) {
                 navigate(
                   `${location.pathname}?search=${search}&filter=alcoholic`
-                );
+                )
               } else {
-                navigate(`${location.pathname}?filter=alcoholic`);
+                navigate(`${location.pathname}?filter=alcoholic`)
               }
             }}
+            style={{ border: filter === 'alcoholic' && '2px solid red' }} // стилізация активної кнопки(можна навішувати клас)
           >
             Alcoholic
           </button>
           <button
             onClick={() => {
-              setFilter("non-alcoholic");
+              setFilter('non-alcoholic')
               if (search) {
                 navigate(
                   `${location.pathname}?search=${search}&filter=non-alcoholic`
-                );
+                )
               } else {
-                navigate(`${location.pathname}?filter=non-alcoholic`);
+                navigate(`${location.pathname}?filter=non-alcoholic`)
               }
             }}
+            style={{ border: filter === 'non-alcoholic' && '2px solid red' }} // стилізация активної кнопки(можна навішувати клас)
           >
             Non-Alcoholic
           </button>
@@ -124,13 +126,13 @@ export default function CocktailsList() {
                 <img src={el.strDrinkThumb} alt="" />
               </div>
               <h3>{el.strDrink}</h3>
-              <h4>{"Alco or not?"}</h4>
+              <h4>{'Alco or not?'}</h4>
               <Link
                 to={`/games-cocktails-app/cocktail/${el.idDrink}`}
                 className="cocktail_name"
               >
                 <h5>
-                  {"cocktail details "}
+                  {'cocktail details '}
                   {
                     <svg
                       width="10"
@@ -160,5 +162,5 @@ export default function CocktailsList() {
         </div>
       </section>
     </div>
-  );
+  )
 }

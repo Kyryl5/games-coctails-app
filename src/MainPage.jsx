@@ -1,4 +1,5 @@
-import BrandButton from "./UiElements/brandButton";
+import BrandButton from './UiElements/brandButton'
+import { ROUTES } from './router/router'
 
 export default function MainPage() {
   return (
@@ -7,11 +8,11 @@ export default function MainPage() {
         <div className="hero-content">
           <h1>Best cocktails and board games for your party</h1>
           <BrandButton
-            buttontext={"find the perfect cocktail"}
-            buttonlink={"/games-cocktails-app/cocktails"}
+            buttontext={'find the perfect cocktail'}
+            buttonlink={ROUTES.cocktailsListPage}
           />
         </div>
       </section>
     </div>
-  );
+  )
 }

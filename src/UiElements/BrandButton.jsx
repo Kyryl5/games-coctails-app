@@ -1,5 +1,3 @@
-import ArrowRightSvg from "./ArrowRightSvg";
-
 export default function brandButton({ buttontext, buttonlink }) {
   return (
     <div className="brand-button">
@@ -24,5 +22,5 @@ export default function brandButton({ buttontext, buttonlink }) {
         </span>
       </a>
     </div>
-  );
+  )
 }

@@ -1,6 +1,5 @@
 export const getCocktails = async ({ request }) => {
   let result
-  console.log('request getCoctails>', request)
 
   if (!request.url.includes('filter')) {
     const resultAlc = await fetch(
