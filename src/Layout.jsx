@@ -1,28 +1,29 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import logo from '/games-cocktails-app/public/logo.svg'
 
 export default function Layout() {
   return (
     <>
       <header>
-        <p>_______↓___________↓____________↓___________</p>
-        <NavLink to="/games-cocktails-app/"> Cheer App</NavLink>
-        <NavLink to="/games-cocktails-app/cocktails"> Coctails</NavLink>
-        <NavLink to="/games-cocktails-app/games"> Party Games</NavLink>
+        <NavLink to="/games-cocktails-app/">
+          <img src={logo} alt="Cheer App Logo" className={'logo'} />
+        </NavLink>
 
-        <p>_______↑___________↑____________↑___________</p>
+        <nav className={'nav-block'}>
+          {/* <NavLink to="/games-cocktails-app/" className={"nav-item"}>
+            Home
+          </NavLink> */}
+          <NavLink to="/games-cocktails-app/cocktails" className={'nav-item'}>
+            Cocktails
+          </NavLink>
+          <NavLink to="/games-cocktails-app/games" className={'nav-item'}>
+            Party games
+          </NavLink>
+        </nav>
       </header>
       <main>
         <Outlet></Outlet>
       </main>
-      <footer>
-        <p>_______↓___________↓____________↓___________</p>
-        <NavLink to="/games-cocktails-app/"> Cheer App</NavLink>
-        <NavLink to="/games-cocktails-app/cocktails"> Coctails</NavLink>
-        <NavLink to="/games-cocktails-app/games"> Party Games</NavLink>
-        <p>Created by ...</p>
-        <p>Cheer App ...</p>
-        <p>_______↑___________↑____________↑___________</p>
-      </footer>
     </>
   )
 }

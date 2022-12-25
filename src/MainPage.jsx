@@ -1,13 +1,18 @@
-import { Link } from 'react-router-dom'
+import BrandButton from './UiElements/brandButton'
 import { ROUTES } from './router/router'
 
 export default function MainPage() {
   return (
     <div className="app-info">
-      <h1>Best coctails and board games for your party</h1>
-      <Link to={ROUTES.cocktailsListPage}>Fing the perfect coctail → </Link>
-      <br />
-      <Link to={ROUTES.gamesListPage}>Fing the game → </Link>
+      <section className="hero-screen">
+        <div className="hero-content">
+          <h1>Best cocktails and board games for your party</h1>
+          <BrandButton
+            buttontext={'find the perfect cocktail'}
+            buttonlink={ROUTES.cocktailsListPage}
+          />
+        </div>
+      </section>
     </div>
   )
 }
