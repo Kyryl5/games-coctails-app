@@ -1,0 +1,304 @@
+$font-stack: "Montserrat", sans-serif;
+$primary-color: #fdca09;
+$Primary-lighter: rgba(254, 188, 10, 0.7);
+$primary-darker: #fec00a;
+$yellow-light: #fbf7f2;
+$black: #101010;
+$blue: #4589f7;
+
+#root {
+  font-family: $font-stack;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80px;
+  padding: 0px 50px;
+  z-index: 50;
+  margin: 0px;
+
+  & .logo {
+    height: 6vw;
+    max-height: 70px;
+    min-height: 50px;
+    &:hover {
+      opacity: 90%;
+    }
+  }
+}
+
+h1 {
+  margin: 0px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+}
+
+.nav-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-left: auto;
+}
+
+.nav-item {
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
+  margin: 25px;
+
+  &:hover {
+    color: #fcffc0;
+  }
+}
+
+.hero-screen {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0px;
+  height: 90vh;
+  background-image: url(hero-bg.png);
+  background-size: 100vw;
+  background-repeat: no-repeat;
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    position: relative;
+    left: -5%;
+    top: 15%;
+  }
+
+  h1 {
+    display: flex;
+    font-weight: 800;
+  }
+}
+
+.input-area {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: $primary-color;
+}
+
+input::placeholder {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: $primary-color;
+}
+
+.hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $yellow-light;
+  width: 100%;
+
+  & .hero-head-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+    padding-left: 4vw;
+  }
+
+  & h1 {
+    display: flex;
+    margin: 0px;
+    font-weight: 900;
+    font-size: 3vw;
+    text-transform: uppercase;
+    margin-top: 7%;
+  }
+  & h2 {
+    display: flex;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 4vw;
+  }
+
+  & .cocktails_search {
+    margin-top: 20px;
+    margin-left: 4vw;
+  }
+
+  & .brand-button {
+    margin-top: 40px;
+    margin-bottom: 5%;
+    margin-left: 4vw;
+
+    & .brand-button-a {
+      font-weight: 700;
+    }
+
+    & .circle-block {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.hero-head-image {
+  width: 500px;
+  height: 500px;
+  background-image: url(cocktail.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0px;
+}
+
+.search-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-start;
+  width: 80%;
+
+  & button {
+    margin-right: 20px;
+    font-weight: 900;
+    padding: 8px 20px;
+    border-radius: 10px;
+    background: white;
+    border: 2px solid white;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid $primary-color;
+    }
+  }
+}
+
+.cocktail_list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-around;
+  gap: 15px;
+
+  & .cocktail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-bottom: 30px;
+
+    & .cocktail_image {
+      width: 100%;
+      & img {
+        border-radius: 20px;
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & h3 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      font-size: 3vh;
+      color: $primary-color;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+    }
+
+    & h4 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      color: $black;
+      font-size: 1.5vh;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: 800;
+    }
+    & h5 {
+      color: $black;
+      font-size: 1.8vh;
+      text-decoration: none;
+      cursor: pointer;
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+  }
+}
+
+// -- branded button styles -- //
+
+.brand-button {
+  display: flex;
+  margin-top: 50px;
+
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.circle-block {
+  background: #ffffff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: -10px;
+}
+
+.brand-button-a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: left;
+  color: $black;
+  position: relative;
+  left: -20px;
+}
+
+.brand-button-arrow {
+  margin-left: 10px;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  .hero-head {
+    & h1 {
+      font-size: 7vw;
+    }
+  }
+}
