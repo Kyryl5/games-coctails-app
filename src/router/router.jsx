@@ -7,6 +7,7 @@ import CocktailsList from '../CoctailPages/CocktailsList'
 import CocktailPage from '../CoctailPages/CocktailPage'
 import RandomCocktailPage from '../CoctailPages/RandomCocktailPage'
 import GameCard from '../GamePages/GameCard'
+// import SearchedCoctailsPage from '../CoctailPages/SearchedCoctailsPage'
 
 import { getCocktails } from '../CoctailPages/getCocktails'
 import { getCoctail } from '../CoctailPages/getCoctail'
