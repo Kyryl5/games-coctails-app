@@ -1,0 +1,761 @@
+$font-stack: "Montserrat", sans-serif;
+$primary-color: #fdca09;
+$Primary-lighter: rgba(254, 188, 10, 0.7);
+$primary-darker: #fec00a;
+$yellow-light: #fbf7f2;
+$black: #101010;
+$blue: #5f88ca;
+$light-blue: #e2f3eb;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  font-family: $font-stack;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80px;
+  padding: 0px 50px;
+  z-index: 50;
+  margin: 0px;
+
+  & .logo {
+    height: 6vw;
+    max-height: 70px;
+    min-height: 50px;
+    &:hover {
+      opacity: 90%;
+    }
+  }
+}
+
+.footer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  padding: 0px 50px;
+  z-index: 50;
+  margin: 0px;
+
+  & .logo {
+    height: 3vw;
+    max-height: 70px;
+    min-height: 50px;
+    &:hover {
+      opacity: 90%;
+    }
+  }
+
+  & article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & h5,
+  h6 {
+    display: flex;
+    justify-content: center;
+    color: $yellow-light;
+    text-align: center;
+    font-weight: 500;
+    margin: 0px;
+    white-space: pre;
+  }
+
+  & span {
+    color: $primary-color;
+  }
+
+  & article {
+    margin: 0;
+  }
+
+  & .bottom {
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+h1 {
+  margin: 0px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+}
+
+.nav-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-left: auto;
+}
+
+.nav-item {
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
+  margin: 25px;
+
+  &:hover {
+    color: #fcffc0;
+  }
+}
+
+.hero-screen {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0px;
+  height: 90vh;
+  background-image: url(hero-bg.png);
+  background-size: 100vw;
+  background-repeat: no-repeat;
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    position: relative;
+    left: -5%;
+    top: 15%;
+  }
+
+  h1 {
+    display: flex;
+    font-weight: 800;
+  }
+}
+
+.promo-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $black;
+    font-size: 2vh;
+    height: 35px;
+    width: 150px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px 20px;
+    background-color: $primary-color;
+    padding: 8px 15px;
+    border-radius: 10px;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  & .benefits {
+    width: 80%;
+  }
+  & .benefits-2 {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    & .benefits-info {
+      display: flex;
+      width: 40vw;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 10vw;
+
+      & h2 {
+        width: 60%;
+        font-weight: 700;
+        font-size: 2.5vw;
+        line-height: 140%;
+      }
+
+      & .benefit {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      & .benefiticon {
+        width: 100px;
+        height: 150px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      & .benefiticon-light {
+        background-image: url(Icon-idea.png);
+      }
+
+      & .benefiticon-games {
+        background-image: url(Icon-games.png);
+      }
+
+      & .benefiticon-random {
+        background-image: url(Icon-random.png);
+      }
+
+      & .benefit-text {
+        padding-top: 10px;
+        width: 80%;
+        margin-left: 1vw;
+      }
+
+      & p {
+        width: 70%;
+        line-height: 160%;
+      }
+    }
+  }
+
+  & .icon-and-text {
+    margin: 50px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .logo-icon {
+      display: block;
+      width: 400px;
+      height: 200px;
+      margin-right: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(logo-icon.png);
+    }
+
+    & .services-img {
+      display: block;
+      width: 100%;
+      height: 250px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(Services.png);
+      margin-top: 30px;
+      border-bottom: 1px solid rgb(203, 203, 203);
+    }
+
+    & h2 {
+      font-weight: 700;
+      font-size: 3vw;
+      line-height: 150%;
+
+      text-align: right;
+    }
+
+    & h3 {
+      display: flex;
+      width: 100%;
+      font-weight: 700;
+      font-size: 2.5vw;
+      line-height: 150%;
+
+      text-align: left;
+    }
+  }
+
+  & .cover-image {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(hero-gallery.png);
+    margin-top: 30px;
+    border-bottom: 1px solid rgb(203, 203, 203);
+  }
+
+  & .half-cover-image {
+    display: block;
+    width: 40vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(hero-side.png);
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.input-area {
+  width: 250px;
+  padding: 15px;
+  border-radius: 10px;
+  border-color: $primary-color;
+  margin-right: 20px;
+}
+
+input,
+input::placeholder {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: $primary-color;
+}
+
+.hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $yellow-light;
+  width: 100%;
+
+  & .hero-head-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70vw;
+    padding-left: 4vw;
+  }
+  & .coctail-hero,
+  .game-hero {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50vw;
+    padding-left: 4vw;
+  }
+  & h1 {
+    display: flex;
+    margin: 0px;
+    font-weight: 900;
+    font-size: 3vw;
+    text-transform: uppercase;
+    margin-top: 7%;
+    z-index: 50;
+  }
+  & h2 {
+    display: flex;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 4vw;
+  }
+
+  & h3 {
+    display: flex;
+    margin: 10px 10vw 50px 0px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $blue;
+    font-size: 1.1vw;
+  }
+
+  & .cocktails_search {
+    margin-top: 20px;
+    margin-left: 4vw;
+
+    & .search_form {
+      & button {
+        margin-top: 10px;
+        background-color: $primary-color;
+        color: white;
+        border: 2px solid $primary-color;
+        border-radius: 10px;
+        font-family: "Montserrat";
+        font-weight: 700;
+        padding: 15px 25px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  & .brand-button {
+    margin-top: 40px;
+    margin-bottom: 5%;
+    margin-left: 4vw;
+
+    & .brand-button-a {
+      font-weight: 700;
+    }
+
+    & .circle-block {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.hero-head-games {
+  background-color: $light-blue;
+}
+
+.coctail-info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 50vw;
+  padding-left: 4vw;
+
+  & h2 {
+    margin-top: 50px;
+  }
+
+  & p {
+    font-size: 1.3vw;
+    line-height: 160%;
+    margin-bottom: 20px;
+  }
+
+  & .brand-button {
+    margin-top: 40px;
+    margin-bottom: 15%;
+
+    & .brand-button-a {
+      font-weight: 700;
+    }
+
+    & .circle-block {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.hero-head-image-cocktails {
+  width: 600px;
+  height: 500px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0px;
+  background-image: url(cocktail.png);
+}
+
+.hero-head-image-games {
+  width: 700px;
+  height: 400px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0px;
+  background-image: url(game.png);
+}
+
+.main-image-frame {
+  width: 35vw;
+  position: absolute;
+  right: 7vh;
+  top: 130px;
+  text-align: center;
+  color: gray;
+  font-size: 1vw;
+  & img {
+    border-radius: 20px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.main-image-frame-game {
+  width: 30vw;
+  position: absolute;
+  right: 10vh;
+  top: 130px;
+  text-align: center;
+  color: gray;
+  font-size: 1vw;
+  & img {
+    border-radius: 20px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.search-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-start;
+  width: 80%;
+
+  & button {
+    margin-right: 20px;
+    font-weight: 900;
+    padding: 8px 20px;
+    border-radius: 10px;
+    background: white;
+    border: 2px solid white;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid $primary-color;
+    }
+  }
+}
+
+.cocktail_list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-around;
+  gap: 15px;
+
+  & .cocktail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    min-width: 280px;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-bottom: 30px;
+
+    & .cocktail_image {
+      width: 100%;
+      & img {
+        display: block;
+        border-radius: 20px;
+        max-width: 100%;
+        object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    & h3 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      font-size: 3vh;
+      color: $primary-color;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+    }
+
+    & h4 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      color: $black;
+      font-size: 1.5vh;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: 800;
+    }
+
+    & a {
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        opacity: 80%;
+      }
+    }
+
+    & h5 {
+      color: $black;
+      font-size: 1.8vh;
+      text-transform: capitalize;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.games_list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-around;
+  gap: 15px;
+
+  & .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    min-width: 280px;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-bottom: 30px;
+
+    & .game_image {
+      width: 100%;
+      height: 35vh;
+      & img {
+        display: block;
+        border-radius: 20px;
+        max-width: 100%;
+        max-height: 35vh;
+        object-fit: contain;
+        margin: auto;
+      }
+    }
+
+    & h3 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      font-size: 3vh;
+      color: $primary-color;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+    }
+
+    & h4 {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      color: $black;
+      font-size: 1.5vh;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: 800;
+    }
+
+    & a {
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        opacity: 80%;
+      }
+    }
+
+    & h5 {
+      color: $black;
+      font-size: 1.8vh;
+      text-transform: capitalize;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.ingredient {
+  display: flex;
+  width: 40vw;
+  align-items: center;
+  margin-left: 2vw;
+  margin-bottom: 2vh;
+
+  .background {
+    display: block;
+    position: absolute;
+    height: 9vh;
+    width: 40vw;
+    // background: $yellow-light;
+    background: linear-gradient(90deg, $primary-color 0%, white 100%);
+    border-radius: 10px;
+    z-index: 1;
+  }
+  & .ingradient-details {
+    margin-left: 0.2vw;
+    z-index: 10;
+
+    & h3 {
+      margin: 0px;
+    }
+    & h4 {
+      margin: 0px;
+      margin-top: 5px;
+      color: $blue;
+    }
+  }
+  & .image-frame {
+    z-index: 50;
+    height: 15vh;
+    margin-left: 0.2vw;
+
+    & img {
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+// -- branded button styles -- //
+
+.brand-button {
+  display: flex;
+  margin-top: 50px;
+
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.circle-block {
+  background: #ffffff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: -10px;
+}
+
+.brand-button-a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: left;
+  color: $black;
+  position: relative;
+  left: -20px;
+}
+
+.brand-button-arrow {
+  margin-left: 10px;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  .hero-head {
+    & h1 {
+      font-size: 7vw;
+    }
+  }
+}

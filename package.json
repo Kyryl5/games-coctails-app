@@ -1,23 +1,26 @@
 {
-  "name": "games-coctails-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.5.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.22",
-    "@types/react-dom": "^18.0.7",
-    "@vitejs/plugin-react": "^2.2.0",
-    "prettier": "^2.8.1",
-    "vite": "^3.2.0"
-  }
+	"name": "games-coctails-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"server": "json-server -w db.json -p 3004"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.5.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.0.22",
+		"@types/react-dom": "^18.0.7",
+		"@vitejs/plugin-react": "^2.2.0",
+		"json-server": "^0.17.1",
+		"prettier": "^2.8.1",
+		"sass": "^1.57.1",
+		"vite": "^3.2.0"
+	}
 }

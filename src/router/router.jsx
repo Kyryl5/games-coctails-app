@@ -1,49 +1,63 @@
 import { createBrowserRouter } from 'react-router-dom'
-import MainPage from '../routedApp/MainPage'
-import AppInfo from '../components/AppInfo'
-import ErrorPage from '../routedApp/ErrorPage'
-import GamesList from '../components/GamesList'
-import CoctailsList from '../components/CoctailsList'
-import CoctailCard from '../routedApp/CoctailCard'
-import GameCard from '../routedApp/GameCard'
-import { getGameData } from '../helpers/getGameData'
-import { getCoctailData } from '../helpers/getCoctailData'
+import Layout from '../Layout'
+import MainPage from '../MainPage'
+import ErrorPage from '../ErrorPage'
+import GamesList from '../GamePages/GamesList'
+import CocktailsList from '../CoctailPages/CocktailsList'
+import CocktailPage from '../CoctailPages/CocktailPage'
+import RandomCocktailPage from '../CoctailPages/RandomCocktailPage'
+import GameCard from '../GamePages/GameCard'
+// import SearchedCoctailsPage from '../CoctailPages/SearchedCoctailsPage'
 
-const ROUTES = {
-  mainPage: '/games-coctails-app/',
-  gamesListPage: '/games-coctails-app/games',
-  coctailsListPage: '/games-coctails-app/coctails',
-  gamePage: '/games-coctails-app/games/:game',
-  coctailPage: '/games-coctails-app/coctails/:coctail',
+import { getCocktails } from '../CoctailPages/getCocktails'
+import { getCoctail } from '../CoctailPages/getCoctail'
+import { getRandomCoctail } from '../CoctailPages/getRandomCoctail'
+import { getGame } from '../GamePages/getGame'
+import { getGamesList } from '../GamePages/getGamesList'
+
+export const ROUTES = {
+  mainPage: '/games-cocktails-app/',
+  gamesListPage: '/games-cocktails-app/games',
+  cocktailsListPage: '/games-cocktails-app/cocktails',
+  gamePage: '/games-cocktails-app/games/game/:id',
+  cocktailPage: '/games-cocktails-app/cocktail/:idDrink',
+  randomCocktailPage: '/games-cocktails-app/cocktail/random',
 }
 
 export const router = createBrowserRouter([
   {
     path: ROUTES.mainPage,
-    element: <MainPage />,
+    element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
       {
-        element: <AppInfo />,
+        element: <MainPage />,
         index: true,
       },
       {
         path: ROUTES.gamesListPage,
         element: <GamesList />,
-      },
-      {
-        path: ROUTES.coctailsListPage,
-        element: <CoctailsList />,
+        loader: getGamesList,
       },
       {
         path: ROUTES.gamePage,
         element: <GameCard />,
-        loader: getGameData,
+        loader: getGame,
       },
       {
-        path: ROUTES.coctailPage,
-        element: <CoctailCard />,
-        loader: getCoctailData,
+        path: ROUTES.cocktailsListPage,
+        element: <CocktailsList />,
+        loader: getCocktails,
+      },
+      {
+        path: ROUTES.cocktailPage,
+        element: <CocktailPage />,
+        loader: getCoctail,
+      },
+      {
+        path: ROUTES.randomCocktailPage,
+        element: <RandomCocktailPage />,
+        loader: getRandomCoctail,
       },
     ],
   },
