@@ -1,5 +1,4 @@
 export const getCocktails = async ({ request }) => {
-  console.log('request >', request)
   let result
 
   if (!request.url.includes('filter')) {
