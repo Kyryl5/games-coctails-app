@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default function SearchedCoctailsPage({ coctails }) {
   return (
@@ -11,13 +11,16 @@ export default function SearchedCoctailsPage({ coctails }) {
                 <img src={el.strDrinkThumb} alt="" />
               </div>
               <h3>{el.strDrink}</h3>
-              <h4>{'Alco or not?'}</h4>
+              <h4>
+                {el.strAlcoholic ? el.strAlcoholic + " " : null}
+                {el.strCategory ? el.strCategory : null}
+              </h4>
               <Link
                 to={`/games-cocktails-app/cocktail/${el.idDrink}`}
                 className="cocktail_name"
               >
                 <h5>
-                  {'cocktail details '}
+                  {"cocktail details "}
                   {
                     <svg
                       width="10"
@@ -34,8 +37,6 @@ export default function SearchedCoctailsPage({ coctails }) {
                   }
                 </h5>
               </Link>
-              <div className="cocktail_alcoholic">{el.strAlcoholic}</div>
-              <div className="cocktail_category">{el.strCategory}</div>
             </div>
           ))}
           {/* {coctails?.length === 0 && (
@@ -47,5 +48,5 @@ export default function SearchedCoctailsPage({ coctails }) {
         </div>
       </section>
     </div>
-  )
+  );
 }
