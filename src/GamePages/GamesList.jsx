@@ -47,7 +47,7 @@ export default function GamesList() {
           <h2>We created a games database for your fun</h2>
           <BrandButton
             buttontext={"give me a random game"}
-            buttonlink={`/games-cocktails-app/games/game/${Math.floor(
+            buttonlink={`/games-coctails-app/games/game/${Math.floor(
               Math.random() * games.length
             )}`}
           />
