@@ -533,6 +533,7 @@ input::placeholder {
   width: 80%;
 
   & button {
+    text-decoration: none;
     margin-right: 20px;
     font-weight: 900;
     padding: 8px 20px;
@@ -540,7 +541,6 @@ input::placeholder {
     background: white;
     border: 2px solid white;
     cursor: pointer;
-
     &:hover {
       border: 2px solid $primary-color;
     }
@@ -600,6 +600,14 @@ input::placeholder {
       text-decoration: none;
       text-transform: capitalize;
       font-weight: 800;
+    }
+
+    & h4.top-el {
+      margin-bottom: 5px;
+    }
+
+    & h4.bottom-el {
+      margin-top: 0px;
     }
 
     & a {
@@ -733,6 +741,31 @@ input::placeholder {
       object-fit: contain;
     }
   }
+}
+
+// -- Error messages -- //@at-root
+
+.error-page {
+  display: flex;
+  width: 100vw;
+  height: 95vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-result-message-h5,
+.no-result-message-h1 {
+  margin-top: 2vh;
+  font-weight: 400;
+  color: rgb(208, 76, 76);
+  font-size: 4vw;
+  margin-bottom: 10px;
+}
+.no-result-message-h6 {
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 3vw;
 }
 
 // -- branded button styles -- //
