@@ -17,7 +17,9 @@ export default function GameCard() {
       <section className="coctail-info">
         <h2>Description</h2>
         <p>{game.description}</p>
-        <a href={game.link}>buy this game</a>
+        <a className="button-to-shop" href={game.link}>
+          buy this game
+        </a>
       </section>
     </>
   );
