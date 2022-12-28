@@ -1,4 +1,6 @@
-import { createHashRouter } from "react-router-dom";
+
+import { createBrowserRouter } from "react-router-dom";
+
 import Layout from "../Layout";
 import MainPage from "../MainPage";
 import ErrorPage from "../ErrorPage";
@@ -20,7 +22,7 @@ export const ROUTES = {
   cocktailPage: "/games-coctails-app/cocktail/:idDrink",
 };
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: ROUTES.mainPage,
     element: <Layout />,
