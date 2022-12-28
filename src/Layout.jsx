@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
+
 import logo from "/logo.svg";
 import { ScrollRestoration } from "react-router-dom";
+
 
 export default function Layout() {
   return (
