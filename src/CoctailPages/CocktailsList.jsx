@@ -15,6 +15,8 @@ export default function CocktailsList() {
 	const [search, setSearch] = useState(searchParams.get("search") ?? "");
 	const [filter, setFilter] = useState("");
 	const [randomCocktail, setRandom] = useState("");
+	const [portion, setPortion] = useState(9);
+
 	const location = useLocation();
 	const navigate = useNavigate();
 	const coctails = useLoaderData();
@@ -50,6 +52,25 @@ export default function CocktailsList() {
 				setRandom(`/games-cocktails-app/cocktail/${res.drinks[0].idDrink}`)
 			);
 	}, []);
+	useEffect(() => {
+		document.addEventListener("scroll", scrollHandler);
+		return () => {
+			document.removeEventListener("scroll", scrollHandler);
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [portion]);
+
+	const scrollHandler = (e) => {
+		if (
+			e.target.documentElement.scrollHeight -
+				(e.target.documentElement.scrollTop + window.innerHeight) <
+				100 &&
+			portion < coctails?.length
+		) {
+			setPortion((prev) => prev + 9);
+			console.log("add");
+		}
+	};
 	return (
 		<div className="cocktails">
 			<section className="hero-head">
@@ -91,6 +112,7 @@ export default function CocktailsList() {
 								onClick={() => {
 									navigate(`${location.pathname}`);
 									setFilter("");
+									setPortion(9);
 								}}
 								style={{ border: filter === "" && "2px solid #fdca09" }} // стилізация активної кнопки(можна навішувати клас)
 							>
@@ -99,6 +121,7 @@ export default function CocktailsList() {
 							<button
 								onClick={() => {
 									setFilter("alcoholic");
+									setPortion(9);
 									if (search) {
 										navigate(
 											`${location.pathname}?filter=alcoholic`
@@ -117,6 +140,7 @@ export default function CocktailsList() {
 							<button
 								onClick={() => {
 									setFilter("non-alcoholic");
+									setPortion(9);
 									if (search) {
 										navigate(
 											`${location.pathname}?filter=non-alcoholic`
@@ -132,7 +156,7 @@ export default function CocktailsList() {
 							>
 								Non-Alcoholic
 							</button>
-						</div>{" "}
+						</div>
 					</>
 				) : (
 					<div
@@ -145,7 +169,7 @@ export default function CocktailsList() {
 
 				<div className="cocktail_list">
 					{error ? <div>Something went wrong</div> : null}
-					{coctails?.map((el) => (
+					{coctails?.slice(0, portion).map((el) => (
 						<div className="cocktail" key={el.idDrink}>
 							<div className="cocktail_image">
 								<img src={el.strDrinkThumb} alt="" />
