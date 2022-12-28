@@ -1,12 +1,26 @@
 import BrandButton from "../UiElements/BrandButton";
 import { useState, useEffect } from "react";
-import { useLoaderData, Link } from "react-router-dom";
-// import { ROUTES } from "../router/router";
+import {
+	useLoaderData,
+	Link,
+	useSearchParams,
+	useLocation,
+	useNavigate,
+} from "react-router-dom";
 
 export default function GamesList() {
 	const games = useLoaderData();
 	const [portion, setPortion] = useState(6);
-	const [filter, setFilter] = useState("All-games");
+	const [filter, setFilter] = useState("all-games");
+	const location = useLocation();
+	const navigate = useNavigate();
+	const [searchParams] = useSearchParams();
+
+	useEffect(() => {
+		if (searchParams.get("filter")) {
+			setFilter(searchParams.get("filter"));
+		}
+	}, []);
 
 	useEffect(() => {
 		document.addEventListener("scroll", scrollHandler);
@@ -27,16 +41,17 @@ export default function GamesList() {
 	};
 
 	function gameFilter(obj) {
-		if (filter === "All-games") {
+		if (filter === "all-games") {
 			return obj.theme === obj.theme;
 		} else {
 			return obj.theme === filter;
 		}
 	}
 
-	function clickHandler(num, filt) {
+	function clickHandler(num, filt_nav) {
 		setPortion(num);
-		setFilter(filt);
+		setFilter(filt_nav);
+		navigate(`${location.pathname}?filter=${filt_nav}`);
 	}
 
 	return (
@@ -48,7 +63,7 @@ export default function GamesList() {
 					<BrandButton
 						buttontext={"give me a random game"}
 						buttonlink={`/games/game/${Math.floor(
-							Math.random() * games.length
+							Math.random() * (games.length - games[0].id) + games[0].id
 						)}`}
 					/>
 				</div>
@@ -57,24 +72,24 @@ export default function GamesList() {
 			<section className="search-results">
 				<div className="navigation">
 					<button
-						onClick={() => clickHandler(6, "All-games")}
-						style={{ border: filter === "All-games" && "2px solid #fdca09" }} // стилізация активної кнопки(можна навішувати клас)
+						onClick={() => clickHandler(6, "all-games")}
+						style={{ border: filter === "all-games" && "2px solid #fdca09" }}
 					>
 						All Games
 					</button>
 					<button
-						onClick={() => clickHandler(6, "Alcoholic")}
+						onClick={() => clickHandler(6, "alcoholic")}
 						style={{
-							border: filter === "Alcoholic" && "2px solid #fdca09",
-						}} // стилізация активної кнопки(можна навішувати клас)
+							border: filter === "alcoholic" && "2px solid #fdca09",
+						}}
 					>
 						Alcoholic
 					</button>
 					<button
-						onClick={() => clickHandler(6, "Non-Alcoholic")}
+						onClick={() => clickHandler(6, "non-alcoholic")}
 						style={{
-							border: filter === "Non-Alcoholic" && "2px solid #fdca09",
-						}} // стилізация активної кнопки(можна навішувати клас)
+							border: filter === "non-alcoholic" && "2px solid #fdca09",
+						}}
 					>
 						Non-Alcoholic
 					</button>

@@ -30,7 +30,6 @@ export default function MainPage() {
 						<h3>
 							The most comprehensive cocktail collection ever
 							<Link to={ROUTES.cocktailsListPage}>find a cocktail</Link>
-							{/* <a href={ROUTES.cocktailsListPage}>find a cocktail</a> */}
 						</h3>
 					</div>
 				</div>
@@ -74,7 +73,6 @@ export default function MainPage() {
 							</div>
 						</div>
 						<Link to={ROUTES.gamesListPage}>find a game</Link>
-						{/* <a href={ROUTES.gamesListPage}></a> */}
 					</div>
 				</div>
 			</section>

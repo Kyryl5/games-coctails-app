@@ -6,13 +6,12 @@ import ErrorPage from "../ErrorPage";
 import GamesList from "../GamePages/GamesList";
 import CocktailsList from "../CoctailPages/CocktailsList";
 import CocktailPage from "../CoctailPages/CocktailPage";
-import GameCard from "../GamePages/GameCard";
+import GamePage from "../GamePages/GamePage";
 
 import { getCocktails } from "../CoctailPages/getCocktails";
 import { getCoctail } from "../CoctailPages/getCoctail";
 import { getGame } from "../GamePages/getGame";
 import { getGamesList } from "../GamePages/getGamesList";
-
 
 export const ROUTES = {
 	mainPage: "/",
@@ -39,7 +38,8 @@ export const router = createHashRouter([
 			},
 			{
 				path: ROUTES.gamePage,
-				element: <GameCard />,
+				element: <GamePage />,
+				errorElement: <ErrorPage />,
 				loader: getGame,
 			},
 			{
