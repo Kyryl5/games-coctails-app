@@ -1,5 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
-import logo from "/games-cocktails-app/public/logo.svg";
+
+import logo from "/logo.svg";
+import { ScrollRestoration } from "react-router-dom";
+
 
 export default function Layout() {
   return (
@@ -19,6 +22,7 @@ export default function Layout() {
         </nav>
       </header>
       <main>
+        <ScrollRestoration />
         <Outlet></Outlet>
       </main>
       <footer>
