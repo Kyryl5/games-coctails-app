@@ -1,8 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import GoToTopButton from "./UiElements/GoToTopButton";
 import logo from "/logo.svg";
 import { ScrollRestoration } from "react-router-dom";
-
 
 export default function Layout() {
   return (
@@ -25,6 +24,7 @@ export default function Layout() {
         <ScrollRestoration />
         <Outlet></Outlet>
       </main>
+      <GoToTopButton />
       <footer>
         <div className="footer">
           <NavLink to="/games-cocktails-app/">
