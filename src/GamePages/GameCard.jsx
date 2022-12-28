@@ -1,4 +1,4 @@
-import BrandButton from "../UiElements/brandButton";
+import BrandButton from "../UiElements/BrandButton";
 import { useLoaderData } from "react-router-dom";
 
 export default function GameCard() {
