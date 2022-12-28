@@ -1,4 +1,4 @@
-import BrandButton from "./UiElements/brandButton.jsx";
+import BrandButton from "./UiElements/BrandButton.jsx";
 import { ROUTES } from "./router/router";
 
 export default function MainPage() {
