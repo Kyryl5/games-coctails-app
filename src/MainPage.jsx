@@ -28,7 +28,9 @@ export default function MainPage() {
           <div className="icon-and-text">
             <h3>
               The most comprehensive cocktail collection ever
+
               <a href={ROUTES.cocktailsListPage}>find a cocktail</a>
+
             </h3>
           </div>
         </div>

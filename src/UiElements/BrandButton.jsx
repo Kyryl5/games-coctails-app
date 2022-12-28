@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function BrandButton({ buttontext, buttonlink }) {
   return (
     <div className="brand-button">
       <div className="circle-block"></div>
-      <a href={buttonlink} className="brand-button-a">
+      <Link to={buttonlink} className="brand-button-a">
         {buttontext}
         <span className="brand-button-arrow">
           {
@@ -20,7 +22,7 @@ export default function BrandButton({ buttontext, buttonlink }) {
             </svg>
           }
         </span>
-      </a>
+      </Link>
     </div>
   );
 }
