@@ -3,5 +3,6 @@ export const getGame = ({ params }) => {
 		`https://my-json-server.typicode.com/DimaZHV/cheers-db/games/${params.id}`
 	)
 		.then((res) => res.json())
-		.then((res) => res);
+		.then((res) => res)
+		.catch((error) => console.log("Something happened " + error));
 };
