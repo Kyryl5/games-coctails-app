@@ -533,6 +533,7 @@ input::placeholder {
   width: 80%;
 
   & button {
+    text-decoration: none;
     margin-right: 20px;
     font-weight: 900;
     padding: 8px 20px;
@@ -540,7 +541,6 @@ input::placeholder {
     background: white;
     border: 2px solid white;
     cursor: pointer;
-
     &:hover {
       border: 2px solid $primary-color;
     }
@@ -600,6 +600,14 @@ input::placeholder {
       text-decoration: none;
       text-transform: capitalize;
       font-weight: 800;
+    }
+
+    & h4.top-el {
+      margin-bottom: 5px;
+    }
+
+    & h4.bottom-el {
+      margin-top: 0px;
     }
 
     & a {

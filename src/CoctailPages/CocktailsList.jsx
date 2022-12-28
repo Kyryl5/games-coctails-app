@@ -154,8 +154,12 @@ export default function CocktailsList() {
                   <img src={el.strDrinkThumb} alt={el.strDrink} />
                 </div>
                 <h3>{el.strDrink}</h3>
-                {el.strAlcoholic ? <h4>{el.strAlcoholic}</h4> : null}
-                {el.strCategory ? <h4>{el.strCategory}</h4> : null}
+                {el.strAlcoholic ? (
+                  <h4 className="top-el">{el.strAlcoholic}</h4>
+                ) : null}
+                {el.strCategory ? (
+                  <h4 className="bottom-el">{el.strCategory}</h4>
+                ) : null}
                 <Link to={`/cocktail/${el.idDrink}`} className="cocktail_name">
                   <h5>
                     {"cocktail details "}
