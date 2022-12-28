@@ -13,13 +13,7 @@ import { getCoctail } from "../CoctailPages/getCoctail";
 import { getGame } from "../GamePages/getGame";
 import { getGamesList } from "../GamePages/getGamesList";
 
-// export const ROUTES = {
-// 	mainPage: "/games-coctails-app/",
-// 	gamesListPage: "/games-coctails-app/games",
-// 	cocktailsListPage: "/games-coctails-app/cocktails",
-// 	gamePage: "/games-coctails-app/games/game/:id",
-// 	cocktailPage: "/games-coctails-app/cocktail/:idDrink",
-// };
+
 export const ROUTES = {
 	mainPage: "/",
 	gamesListPage: "/games",
