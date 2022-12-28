@@ -132,7 +132,7 @@ h1 {
   justify-content: center;
   margin: 0px;
   height: 90vh;
-  background-image: url(hero-bg.png);
+  background-image: url(/hero-bg.png);
   background-size: 100vw;
   background-repeat: no-repeat;
 
@@ -222,15 +222,15 @@ h1 {
       }
 
       & .benefiticon-light {
-        background-image: url(Icon-idea.png);
+        background-image: url(/Icon-idea.png);
       }
 
       & .benefiticon-games {
-        background-image: url(Icon-games.png);
+        background-image: url(/Icon-games.png);
       }
 
       & .benefiticon-random {
-        background-image: url(Icon-random.png);
+        background-image: url(/Icon-random.png);
       }
 
       & .benefit-text {
@@ -259,7 +259,7 @@ h1 {
       margin-right: 100px;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(logo-icon.png);
+      background-image: url(/logo-icon.png);
     }
 
     & .services-img {
@@ -268,7 +268,7 @@ h1 {
       height: 250px;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(Services.png);
+      background-image: url(/Services.png);
       margin-top: 30px;
       border-bottom: 1px solid rgb(203, 203, 203);
     }
@@ -298,7 +298,7 @@ h1 {
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(hero-gallery.png);
+    background-image: url(/hero-gallery.png);
     margin-top: 30px;
     border-bottom: 1px solid rgb(203, 203, 203);
   }
@@ -309,7 +309,7 @@ h1 {
     height: 100vh;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(hero-side.png);
+    background-image: url(/hero-side.png);
     margin-top: 30px;
     margin-bottom: 30px;
   }
@@ -456,7 +456,7 @@ input::placeholder {
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 0px;
-  background-image: url(cocktail.png);
+  background-image: url(/cocktail.png);
 }
 
 .hero-head-image-games {
@@ -466,7 +466,7 @@ input::placeholder {
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 0px;
-  background-image: url(game.png);
+  background-image: url(/game.png);
 }
 
 .main-image-frame {
