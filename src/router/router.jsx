@@ -1,26 +1,26 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Layout from '../Layout'
-import MainPage from '../MainPage'
-import ErrorPage from '../ErrorPage'
-import GamesList from '../GamePages/GamesList'
-import CocktailsList from '../CoctailPages/CocktailsList'
-import CocktailPage from '../CoctailPages/CocktailPage'
-import GameCard from '../GamePages/GameCard'
+import { createHashRouter } from "react-router-dom";
+import Layout from "../Layout";
+import MainPage from "../MainPage";
+import ErrorPage from "../ErrorPage";
+import GamesList from "../GamePages/GamesList";
+import CocktailsList from "../CoctailPages/CocktailsList";
+import CocktailPage from "../CoctailPages/CocktailPage";
+import GameCard from "../GamePages/GameCard";
 
-import { getCocktails } from '../CoctailPages/getCocktails'
-import { getCoctail } from '../CoctailPages/getCoctail'
-import { getGame } from '../GamePages/getGame'
-import { getGamesList } from '../GamePages/getGamesList'
+import { getCocktails } from "../CoctailPages/getCocktails";
+import { getCoctail } from "../CoctailPages/getCoctail";
+import { getGame } from "../GamePages/getGame";
+import { getGamesList } from "../GamePages/getGamesList";
 
 export const ROUTES = {
-  mainPage: '/games-coctails-app/',
-  gamesListPage: '/games-coctails-app/games',
-  cocktailsListPage: '/games-coctails-app/cocktails',
-  gamePage: '/games-coctails-app/games/game/:id',
-  cocktailPage: '/games-coctails-app/cocktail/:idDrink',
-}
+  mainPage: "/games-coctails-app/",
+  gamesListPage: "/games-coctails-app/games",
+  cocktailsListPage: "/games-coctails-app/cocktails",
+  gamePage: "/games-coctails-app/games/game/:id",
+  cocktailPage: "/games-coctails-app/cocktail/:idDrink",
+};
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: ROUTES.mainPage,
     element: <Layout />,
@@ -52,4 +52,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
