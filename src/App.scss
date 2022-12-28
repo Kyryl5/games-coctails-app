@@ -23,15 +23,6 @@ body {
   margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Montserrat", sans-serif;
-}
-
 header {
   background-color: $primary-color;
   display: flex;
@@ -433,7 +424,6 @@ input::placeholder {
   color: white;
   border: 2px solid $primary-color;
   border-radius: 10px;
-  font-family: "Montserrat";
   font-weight: 700;
   padding: 15px 25px;
   cursor: pointer;
