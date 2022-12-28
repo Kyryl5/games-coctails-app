@@ -101,12 +101,7 @@ export default function CocktailsList() {
       <section className="search-results">
         {searchParams.get("search") === null ? (
           <>
-            <div
-              className="navigation"
-              // style={{
-              //   visibility: visibleBtn ? 'vivsible' : 'hidden',
-              // }}
-            >
+            <div className="navigation">
               <button
                 onClick={() => {
                   navigate(`${location.pathname}`);

@@ -28,7 +28,7 @@ export default function MainPage() {
           <div className="icon-and-text">
             <h3>
               The most comprehensive cocktail collection ever
-              <a href="/games-cocktails-app/cocktails">find a cocktail</a>
+              <a href="/games-coctails-app/cocktails">find a cocktail</a>
             </h3>
           </div>
         </div>
