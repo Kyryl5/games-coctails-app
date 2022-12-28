@@ -10,7 +10,6 @@ import BrandButton from "../UiElements/BrandButton";
 
 export default function CocktailsList() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [error, setError] = useState(false);
   const [search, setSearch] = useState(searchParams.get("search") ?? "");
   const [filter, setFilter] = useState("");
   const [randomCocktail, setRandom] = useState("");
@@ -19,8 +18,6 @@ export default function CocktailsList() {
   const location = useLocation();
   const navigate = useNavigate();
   const coctails = useLoaderData();
-
-  console.log("coctails >", coctails);
 
   useEffect(() => {
     if (searchParams.get("filter")) {
@@ -39,7 +36,6 @@ export default function CocktailsList() {
   const searchCoctails = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-
     searchParams.set("search", search);
     setSearchParams(searchParams);
   };
@@ -54,7 +50,6 @@ export default function CocktailsList() {
     return () => {
       document.removeEventListener("scroll", scrollHandler);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [portion]);
 
   const scrollHandler = (e) => {
@@ -65,7 +60,6 @@ export default function CocktailsList() {
       portion < coctails?.length
     ) {
       setPortion((prev) => prev + 9);
-      console.log("add");
     }
   };
   return (
@@ -85,7 +79,7 @@ export default function CocktailsList() {
                 className="input-area"
                 autoComplete="none"
               />
-              <button>Search</button>
+              <button disabled={!search}>Search</button>
             </form>
           </div>
           <BrandButton
@@ -154,7 +148,6 @@ export default function CocktailsList() {
 
         {coctails ? (
           <div className="cocktail_list">
-            {error ? <div>Something went wrong</div> : null}
             {coctails?.slice(0, portion).map((el) => (
               <div className="cocktail" key={el.idDrink}>
                 <div className="cocktail_image">
