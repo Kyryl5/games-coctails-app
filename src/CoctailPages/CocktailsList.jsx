@@ -6,7 +6,7 @@ import {
 	useNavigate,
 	Link,
 } from "react-router-dom";
-import BrandButton from "../UiElements/brandButton";
+import BrandButton from "../UiElements/BrandButton";
 import { ROUTES } from "../router/router";
 
 export default function CocktailsList() {
