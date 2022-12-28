@@ -12,7 +12,7 @@ export default function GameCard() {
         </div>
       </section>
       <div className="main-image-frame-game">
-        <img src={`../.${game.img}`} alt="" />
+        <img src={`../${game.img}`} alt="game image" />
       </div>
       <section className="coctail-info">
         <h2>Description</h2>
