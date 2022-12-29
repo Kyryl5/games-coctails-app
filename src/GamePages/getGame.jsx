@@ -10,4 +10,5 @@ export const getGame = ({ params }) => {
 		})
 		.then((res) => res)
 		.catch((error) => console.log("Something happened! " + error.message));
+
 };

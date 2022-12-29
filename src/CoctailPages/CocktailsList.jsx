@@ -1,44 +1,47 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 import {
-	useLoaderData,
-	useSearchParams,
-	useLocation,
-	useNavigate,
-	Link,
-} from "react-router-dom";
-import BrandButton from "../UiElements/BrandButton";
+  useLoaderData,
+  useSearchParams,
+  useLocation,
+  useNavigate,
+  Link,
+} from 'react-router-dom'
+import BrandButton from '../UiElements/BrandButton'
 
 export default function CocktailsList() {
+
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [search, setSearch] = useState(searchParams.get("search") ?? "");
 	const [filter, setFilter] = useState("");
 	const [randomCocktail, setRandom] = useState("");
 	const [portion, setPortion] = useState(9);
 
-	const location = useLocation();
-	const navigate = useNavigate();
-	const coctails = useLoaderData();
 
-	useEffect(() => {
-		if (searchParams.get("filter")) {
-			setFilter(searchParams.get("filter"));
-		}
-	}, []);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const coctails = useLoaderData()
 
-	function paramsHandler(e) {
-		setSearch(e.target.value);
-		if (e.target.value.length === 0) {
-			searchParams.delete("search");
-			setSearchParams(searchParams);
-		}
-	}
 
-	const searchCoctails = async (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		searchParams.set("search", search);
-		setSearchParams(searchParams);
-	};
+  useEffect(() => {
+    if (searchParams.get('filter')) {
+      setFilter(searchParams.get('filter'))
+    }
+  }, [])
+
+  function paramsHandler(e) {
+    setSearch(e.target.value)
+    if (e.target.value.length === 0) {
+      searchParams.delete('search')
+      setSearchParams(searchParams)
+    }
+  }
+
+  const searchCoctails = async (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    searchParams.set('search', search)
+    setSearchParams(searchParams)
+  };
 
 	useEffect(() => {
 		fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
