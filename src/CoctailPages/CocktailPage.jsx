@@ -1,7 +1,29 @@
 import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function CocktailPage() {
   const DRINK = useLoaderData();
+  const [ingradients, setIngradients] = useState([]);
+  const [ingradientsQtt, setIngradientsQtt] = useState([]);
+
+  useEffect(() => {
+    const ingradientsArray = [];
+    const ingradientsQttArray = [];
+
+    for (let i = 1; i <= 15; i++) {
+      let ingredient = `strIngredient${i}`;
+      let ingredientQtt = `strMeasure${i}`;
+
+      if (DRINK[ingredient]) {
+        ingradientsArray.push(DRINK[ingredient]);
+        ingradientsQttArray.push(DRINK[ingredientQtt]);
+      }
+    }
+
+    setIngradients(ingradientsArray);
+    setIngradientsQtt(ingradientsQttArray);
+  }, []);
+
   return (
     <>
       <section className="hero-head">
@@ -21,231 +43,21 @@ export default function CocktailPage() {
         <p> {DRINK.strInstructions}</p>
         <h2>Igredients:</h2>
         <div className="ingredients">
-          {DRINK.strIngredient1 ? (
+          {ingradients.map((el, i) => (
             <div className="ingredient">
               <div className="background"> </div>
               <div className="image-frame">
                 <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient1}.png`}
+                  src={`https://www.thecocktaildb.com/images/ingredients/${el}.png`}
                   alt="Ingredient Photo"
                 />
               </div>
               <div className="ingradient-details">
-                <h3>{DRINK.strIngredient1}</h3>
-                <h4>{DRINK.strMeasure1}</h4>
+                <h3>{el}</h3>
+                <h4>{ingradientsQtt[i]}</h4>
               </div>
             </div>
-          ) : null}
-          {DRINK.strIngredient2 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient2}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient2}</h3>
-                <h4>{DRINK.strMeasure2}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient3 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient3}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient3}</h3>
-                <h4>{DRINK.strMeasure3}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient4 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient4}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient4}</h3>
-                <h4>{DRINK.strMeasure4}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient5 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient5}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient5}</h3>
-                <h4>{DRINK.strMeasure5}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient6 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient6}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient6}</h3>
-                <h4>{DRINK.strMeasure6}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient7 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient7}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient7}</h3>
-                <h4>{DRINK.strMeasure7}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient8 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient8}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient8}</h3>
-                <h4>{DRINK.strMeasure8}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient9 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient9}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient9}</h3>
-                <h4>{DRINK.strMeasure9}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient10 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient10}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient10}</h3>
-                <h4>{DRINK.strMeasure10}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient11 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient11}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient11}</h3>
-                <h4>{DRINK.strMeasure11}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient12 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient12}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient12}</h3>
-                <h4>{DRINK.strMeasure12}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient13 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient13}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient13}</h3>
-                <h4>{DRINK.strMeasure13}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient14 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient14}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient14}</h3>
-                <h4>{DRINK.strMeasure14}</h4>
-              </div>
-            </div>
-          ) : null}
-          {DRINK.strIngredient15 ? (
-            <div className="ingredient">
-              <div className="background"> </div>
-              <div className="image-frame">
-                <img
-                  src={`https://www.thecocktaildb.com/images/ingredients/${DRINK.strIngredient15}.png`}
-                  alt="Ingredient Photo"
-                />
-              </div>
-              <div className="ingradient-details">
-                <h3>{DRINK.strIngredient15}</h3>
-                <h4>{DRINK.strMeasure15}</h4>
-              </div>
-            </div>
-          ) : null}
+          ))}
         </div>
       </section>
     </>
