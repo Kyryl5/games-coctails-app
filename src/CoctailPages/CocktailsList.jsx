@@ -1,63 +1,59 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import {
   useLoaderData,
   useSearchParams,
   useLocation,
   useNavigate,
   Link,
-} from 'react-router-dom'
-import BrandButton from '../UiElements/BrandButton'
+} from "react-router-dom";
+import BrandButton from "../UiElements/BrandButton";
 
 export default function CocktailsList() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [search, setSearch] = useState(searchParams.get('search') ?? '')
-  const [filter, setFilter] = useState('')
-  const [randomCocktail, setRandom] = useState('')
-  const [portion, setPortion] = useState(9)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("search") ?? "");
+  const [filter, setFilter] = useState(searchParams.get("filter") ?? "");
+  const [randomCocktail, setRandom] = useState("");
+  const [portion, setPortion] = useState(9);
 
-  const location = useLocation()
-  const navigate = useNavigate()
-  const coctails = useLoaderData()
-
-  useEffect(() => {
-    if (searchParams.get('filter')) {
-      setFilter(searchParams.get('filter'))
-    }
-  }, [])
+  const location = useLocation();
+  const navigate = useNavigate();
+  const coctails = useLoaderData();
 
   function paramsHandler(e) {
-    setSearch(e.target.value)
+    setSearch(e.target.value);
     if (e.target.value.length === 0) {
-      searchParams.delete('search')
-      setSearchParams(searchParams)
+      searchParams.delete("search");
+      setSearchParams(searchParams);
     }
   }
 
   const searchCoctails = async (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    searchParams.set('search', search)
-    setSearchParams(searchParams)
-  }
+    e.preventDefault();
+    e.stopPropagation();
+    searchParams.set("search", search);
+    setSearchParams(searchParams);
+  };
 
   useEffect(() => {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .then((res) => {
         if (!res.ok) {
-          throw Error("We have an error but we didn't have time to handle it:(")
+          throw Error(
+            "We have an error but we didn't have time to handle it:("
+          );
         }
-        return res.json()
+        return res.json();
       })
       .then((res) => setRandom(`/cocktail/${res.drinks[0].idDrink}`))
-      .catch((error) => console.log('Something happened! ' + error.message))
-  }, [])
+      .catch((error) => console.log("Something happened! " + error.message));
+  }, []);
 
   useEffect(() => {
-    document.addEventListener('scroll', scrollHandler)
+    document.addEventListener("scroll", scrollHandler);
     return () => {
-      document.removeEventListener('scroll', scrollHandler)
-    }
-  }, [portion])
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, [portion]);
 
   const scrollHandler = (e) => {
     if (
@@ -66,9 +62,9 @@ export default function CocktailsList() {
         100 &&
       portion < coctails?.length
     ) {
-      setPortion((prev) => prev + 9)
+      setPortion((prev) => prev + 9);
     }
-  }
+  };
   return (
     <div className="cocktails">
       <section className="hero-head">
@@ -90,46 +86,46 @@ export default function CocktailsList() {
             </form>
           </div>
           <BrandButton
-            buttontext={'give me a random one'}
+            buttontext={"give me a random one"}
             buttonlink={randomCocktail}
           />
         </div>
         <div className="hero-head-image-cocktails"></div>
       </section>
       <section className="search-results">
-        {searchParams.get('search') === null ? (
+        {searchParams.get("search") === null ? (
           <>
             <div className="navigation">
               <button
                 onClick={() => {
-                  navigate(`${location.pathname}`)
-                  setFilter('')
-                  setPortion(9)
+                  navigate(`${location.pathname}`);
+                  setFilter("");
+                  setPortion(9);
                 }}
-                style={{ border: filter === '' && '2px solid #fdca09' }}
+                style={{ border: filter === "" && "2px solid #fdca09" }}
               >
                 All Cocktails
               </button>
               <button
                 onClick={() => {
-                  setFilter('alcoholic')
-                  setPortion(9)
-                  navigate(`${location.pathname}?filter=alcoholic`)
+                  setFilter("alcoholic");
+                  setPortion(9);
+                  navigate(`${location.pathname}?filter=alcoholic`);
                 }}
                 style={{
-                  border: filter === 'alcoholic' && '2px solid #fdca09',
+                  border: filter === "alcoholic" && "2px solid #fdca09",
                 }}
               >
                 Alcoholic
               </button>
               <button
                 onClick={() => {
-                  setFilter('non-alcoholic')
-                  setPortion(9)
-                  navigate(`${location.pathname}?filter=non-alcoholic`)
+                  setFilter("non-alcoholic");
+                  setPortion(9);
+                  navigate(`${location.pathname}?filter=non-alcoholic`);
                 }}
                 style={{
-                  border: filter === 'non-alcoholic' && '2px solid #fdca09',
+                  border: filter === "non-alcoholic" && "2px solid #fdca09",
                 }}
               >
                 Non-Alcoholic
@@ -140,7 +136,7 @@ export default function CocktailsList() {
           <div
             className="navigation"
             style={{
-              height: '39px',
+              height: "39px",
             }}
           ></div>
         )}
@@ -161,7 +157,7 @@ export default function CocktailsList() {
                 ) : null}
                 <Link to={`/cocktail/${el.idDrink}`} className="cocktail_name">
                   <h5>
-                    {'cocktail details '}
+                    {"cocktail details "}
                     {
                       <svg
                         width="10"
@@ -185,11 +181,11 @@ export default function CocktailsList() {
           <>
             <h5 className="no-result-message-h5">No such cocktail found... </h5>
             <h6 className="no-result-message-h6">
-              In the future you can add your own cocktail{' '}
+              In the future you can add your own cocktail
             </h6>
           </>
         )}
       </section>
     </div>
-  )
+  );
 }

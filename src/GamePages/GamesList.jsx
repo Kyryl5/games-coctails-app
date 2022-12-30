@@ -1,33 +1,33 @@
-import BrandButton from '../UiElements/BrandButton'
-import { useState, useEffect } from 'react'
+import BrandButton from "../UiElements/BrandButton";
+import { useState, useEffect } from "react";
 import {
   useLoaderData,
   Link,
   useSearchParams,
   useLocation,
   useNavigate,
-} from 'react-router-dom'
+} from "react-router-dom";
 
 export default function GamesList() {
-  const games = useLoaderData()
-  const [portion, setPortion] = useState(6)
-  const [filter, setFilter] = useState('all-games')
-  const location = useLocation()
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
+  const games = useLoaderData();
+  const [portion, setPortion] = useState(6);
+  const [filter, setFilter] = useState("all-games");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    if (searchParams.get('filter')) {
-      setFilter(searchParams.get('filter'))
+    if (searchParams.get("filter")) {
+      setFilter(searchParams.get("filter"));
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    document.addEventListener('scroll', scrollHandler)
+    document.addEventListener("scroll", scrollHandler);
     return () => {
-      document.removeEventListener('scroll', scrollHandler)
-    }
-  }, [portion])
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, [portion]);
 
   const scrollHandler = (e) => {
     if (
@@ -36,22 +36,21 @@ export default function GamesList() {
         100 &&
       portion < games?.length
     ) {
-      setPortion((prev) => prev + 6)
+      setPortion((prev) => prev + 6);
     }
-  }
+  };
 
   function gameFilter(obj) {
-    if (filter === 'all-games') {
-      return obj.theme === obj.theme
-    } else {
-      return obj.theme === filter
+    if (filter === "all-games") {
+      return obj.theme === obj.theme;
     }
+    return obj.theme === filter;
   }
 
   function clickHandler(num, filt_nav) {
-    setPortion(num)
-    setFilter(filt_nav)
-    navigate(`${location.pathname}?filter=${filt_nav}`)
+    setPortion(num);
+    setFilter(filt_nav);
+    navigate(`${location.pathname}?filter=${filt_nav}`);
   }
 
   return (
@@ -61,7 +60,7 @@ export default function GamesList() {
           <h1>Find your favorite Game</h1>
           <h2>We created a games database for your fun</h2>
           <BrandButton
-            buttontext={'give me a random game'}
+            buttontext={"give me a random game"}
             buttonlink={`/games/game/${Math.floor(
               Math.random() * (games.length - games[0].id) + games[0].id
             )}`}
@@ -72,23 +71,23 @@ export default function GamesList() {
       <section className="search-results">
         <div className="navigation">
           <button
-            onClick={() => clickHandler(6, 'all-games')}
-            style={{ border: filter === 'all-games' && '2px solid #fdca09' }}
+            onClick={() => clickHandler(6, "all-games")}
+            style={{ border: filter === "all-games" && "2px solid #fdca09" }}
           >
             All Games
           </button>
           <button
-            onClick={() => clickHandler(6, 'alcoholic')}
+            onClick={() => clickHandler(6, "alcoholic")}
             style={{
-              border: filter === 'alcoholic' && '2px solid #fdca09',
+              border: filter === "alcoholic" && "2px solid #fdca09",
             }}
           >
             Alcoholic
           </button>
           <button
-            onClick={() => clickHandler(6, 'non-alcoholic')}
+            onClick={() => clickHandler(6, "non-alcoholic")}
             style={{
-              border: filter === 'non-alcoholic' && '2px solid #fdca09',
+              border: filter === "non-alcoholic" && "2px solid #fdca09",
             }}
           >
             Non-Alcoholic
@@ -109,7 +108,7 @@ export default function GamesList() {
                 <h4>{game.theme} game</h4>
                 <Link to={`game/${game.id}`}>
                   <h5>
-                    {'game details '}
+                    {"game details "}
                     {
                       <svg
                         width="10"
@@ -131,5 +130,5 @@ export default function GamesList() {
         </div>
       </section>
     </div>
-  )
+  );
 }
