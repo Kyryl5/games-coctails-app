@@ -9,6 +9,7 @@ import {
 import BrandButton from "../UiElements/BrandButton";
 
 export default function CocktailsList() {
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") ?? "");
   const [filter, setFilter] = useState(searchParams.get("filter") ?? "");
@@ -62,9 +63,11 @@ export default function CocktailsList() {
         100 &&
       portion < coctails?.length
     ) {
+
       setPortion((prev) => prev + 9);
     }
   };
+
   return (
     <div className="cocktails">
       <section className="hero-head">
@@ -86,23 +89,29 @@ export default function CocktailsList() {
             </form>
           </div>
           <BrandButton
+
             buttontext={"give me a random one"}
+
             buttonlink={randomCocktail}
           />
         </div>
         <div className="hero-head-image-cocktails"></div>
       </section>
       <section className="search-results">
+
         {searchParams.get("search") === null ? (
+
           <>
             <div className="navigation">
               <button
                 onClick={() => {
+
                   navigate(`${location.pathname}`);
                   setFilter("");
                   setPortion(9);
                 }}
                 style={{ border: filter === "" && "2px solid #fdca09" }}
+
               >
                 All Cocktails
               </button>
@@ -114,18 +123,21 @@ export default function CocktailsList() {
                 }}
                 style={{
                   border: filter === "alcoholic" && "2px solid #fdca09",
+
                 }}
               >
                 Alcoholic
               </button>
               <button
                 onClick={() => {
+
                   setFilter("non-alcoholic");
                   setPortion(9);
                   navigate(`${location.pathname}?filter=non-alcoholic`);
                 }}
                 style={{
                   border: filter === "non-alcoholic" && "2px solid #fdca09",
+
                 }}
               >
                 Non-Alcoholic
@@ -136,7 +148,9 @@ export default function CocktailsList() {
           <div
             className="navigation"
             style={{
+
               height: "39px",
+
             }}
           ></div>
         )}
@@ -157,7 +171,9 @@ export default function CocktailsList() {
                 ) : null}
                 <Link to={`/cocktail/${el.idDrink}`} className="cocktail_name">
                   <h5>
+
                     {"cocktail details "}
+
                     {
                       <svg
                         width="10"
@@ -181,11 +197,15 @@ export default function CocktailsList() {
           <>
             <h5 className="no-result-message-h5">No such cocktail found... </h5>
             <h6 className="no-result-message-h6">
+
               In the future you can add your own cocktail
+
             </h6>
           </>
         )}
       </section>
     </div>
+
   );
+
 }
