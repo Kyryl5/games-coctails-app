@@ -2,33 +2,20 @@ export const getCocktails = async ({ request }) => {
 	let result;
 
 	if (!request.url.includes("filter")) {
-		const resultAlc = await fetch(
-			"https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-		)
-			.then((res) => {
+		const [resultAlc, resultNonAlc] = await Promise.all([
+			fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic").then((res) => {
 				if (!res.ok) {
-					throw Error(
-						"We have an error but we didn't have time to handle it:("
-					);
+					throw Error("We have an error but we didn't have time to handle it:(");
 				}
 				return res.json();
-			})
-			.then((res) => res.drinks)
-			.catch((error) => console.log("Something happened! " + error.message));
-
-		const resultNonAlc = await fetch(
-			"https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-		)
-			.then((res) => {
+			}).then((res) => res.drinks),
+			fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic").then((res) => {
 				if (!res.ok) {
-					throw Error(
-						"We have an error but we didn't have time to handle it:("
-					);
+					throw Error("We have an error but we didn't have time to handle it:(");
 				}
 				return res.json();
-			})
-			.then((res) => res.drinks)
-			.catch((error) => console.log("Something happened! " + error.message));
+			}).then((res) => res.drinks)
+		]).catch((error) => console.log("Something happened! " + error.message));
 
 		result = resultAlc.reduce((acc, el, i) => {
 			if (!resultNonAlc[i]) {
