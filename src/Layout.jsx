@@ -48,7 +48,7 @@ export default function Layout() {
 							<span>Dmytro Zhuravlov, Kyryl Savytskyi & Liubomyr Olianych</span>
 						</h5>
 						<br />
-						<h6>Cheer App 2022 © all rights reserved</h6>
+						<h6>Cheer App {(new Date().getFullYear()) } © all rights reserved</h6>
 					</article>
 				</div>
 			</footer>
